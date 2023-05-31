@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clientservergui.ClientController">
+   <children>
+      <Label fx:id="clientLabel" layoutX="14.0" layoutY="14.0" prefHeight="45.0" prefWidth="218.0" text="Label" />
+      <TextField fx:id="typedMessage" layoutX="232.0" layoutY="14.0" onAction="#newMessageTyped" prefHeight="45.0" prefWidth="355.0" promptText="Send message...." />
+      <ListView fx:id="oldMessages" layoutX="14.0" layoutY="62.0" prefHeight="324.0" prefWidth="574.0" />
+   </children>
+</Pane>

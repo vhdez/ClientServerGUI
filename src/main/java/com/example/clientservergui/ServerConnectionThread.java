@@ -3,6 +3,7 @@ package com.example.clientservergui;
 import javafx.scene.control.ListView;
 
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -24,6 +25,8 @@ public class ServerConnectionThread implements Runnable {
                 Socket socketServerSide = connectionSocket.accept();
                 System.out.println("Server has new client...");
                 ObjectInputStream dataReader = new ObjectInputStream(socketServerSide.getInputStream());
+                ObjectOutputStream dataWriter = new ObjectOutputStream(socketServerSide.getOutputStream());
+                ServerController.allWriters.add(dataWriter);
                 Thread perClientReadingThread = new Thread(new NetworkReadingThread(dataReader, oldMessages));
                 perClientReadingThread.start();
             }
