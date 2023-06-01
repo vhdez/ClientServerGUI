@@ -26,7 +26,7 @@ public class ServerConnectionThread implements Runnable {
                 System.out.println("Server has new client...");
                 ObjectInputStream dataReader = new ObjectInputStream(socketServerSide.getInputStream());
                 ObjectOutputStream dataWriter = new ObjectOutputStream(socketServerSide.getOutputStream());
-                ServerController.allWriters.add(dataWriter);
+                ServerController.lastClientSocket = dataWriter;
                 Thread perClientReadingThread = new Thread(new NetworkReadingThread(dataReader, oldMessages));
                 perClientReadingThread.start();
             }
